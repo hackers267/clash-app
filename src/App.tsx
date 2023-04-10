@@ -10,29 +10,13 @@ import { Profiles } from "./pages/Profiles";
 import { Connections } from "./pages/Connections";
 import React from "react";
 import { IntlProvider } from "react-intl";
+import { lang } from "./locales";
 
 function App(): JSX.Element {
-  const en = {
-    General: "General",
-    Settings: "Settings",
-    Logs: "Logs",
-    Feedback: "Feedback",
-    Proxies: "Proxies",
-    Profiles: "Profiles",
-    Connections: "Connections",
-  };
-  const zh = {
-    General: "通用",
-    Settings: "设置",
-    Logs: "日志",
-    Feedback: "反馈",
-    Proxies: "代理",
-    Profiles: "配置",
-    Connections: "连接",
-  };
+  const message = lang.cn;
   return (
     <div className="container">
-      <IntlProvider locale="zh-CN" messages={zh}>
+      <IntlProvider defaultLocale="zh-CN" locale="en" messages={message}>
         <Router>
           <Routes>
             <Route
