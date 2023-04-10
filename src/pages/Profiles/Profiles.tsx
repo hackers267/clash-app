@@ -1,7 +1,3 @@
 export function Profiles(): JSX.Element {
-    return (
-        <div className="container">
-            Profiles
-        </div>
-    );
+  return <div className="container">Profiles</div>;
 }

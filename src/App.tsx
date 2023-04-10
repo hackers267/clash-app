@@ -1,11 +1,7 @@
 import "./App.css";
 
-function App() {
-  return (
-    <div className="container">
-        App
-    </div>
-  );
+function App(): JSX.Element {
+  return <div className="container">App</div>;
 }
 
 export default App;

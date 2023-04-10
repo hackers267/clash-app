@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
-import { PropsWithChildren } from "react";
+import { type PropsWithChildren } from "react";
 import "./index.css";
 
 export function Side(props: PropsWithChildren): JSX.Element {
   const { children } = props;
-  type Item = {
+
+  interface Item {
     label: string;
     to: string;
-  };
+  }
+
   const routes: Item[] = [
     { to: "/", label: "General" },
     { to: "/proxies", label: "Proxies" },
