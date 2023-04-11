@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./App.module.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Side } from "./Layouts";
 import { General } from "./pages/General";
@@ -10,13 +10,16 @@ import { Profiles } from "./pages/Profiles";
 import { Connections } from "./pages/Connections";
 import React from "react";
 import { IntlProvider } from "react-intl";
-import { lang } from "./locales";
+import { ToolBar } from "./components";
+import { useLocals } from "./hooks";
 
 function App(): JSX.Element {
-  const message = lang.cn;
+  const { state } = useLocals();
+  const { locals, message } = state;
   return (
-    <div className="container">
-      <IntlProvider defaultLocale="zh-CN" locale="en" messages={message}>
+    <div className={styles.container}>
+      <ToolBar />
+      <IntlProvider defaultLocale="zh-CN" locale={locals} messages={message}>
         <Router>
           <Routes>
             <Route

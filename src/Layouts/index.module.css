@@ -7,29 +7,29 @@
     list-style: none;
     display: grid;
     background-color: var(--sidebar-background, #f6f6f6);
-    block-size: 100vh;
+    block-size: 100%;
     justify-content: stretch;
     align-items: center;
     align-content: start;
     grid-auto-rows: 48px;
 }
 
-.side-item {
+.sideItem {
     display: grid;
     place-content: center;
     inline-size: 100%;
     block-size: 100%;
 }
 
-.side-item:has(.active) {
+.sideItem:has(.active) {
     background-color: var(--background-color, white);
 }
 
-.side-item a {
+.sideItem a {
     text-decoration: none;
     color: var(--gray-color, gray);
 }
 
-.side-item .active {
+.sideItem .active {
     color: var(--color, black);
 }
