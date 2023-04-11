@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
+    "jotai": "^2.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.3.2",
