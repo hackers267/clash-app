@@ -1,7 +1,3 @@
 export function Proxies(): JSX.Element {
-    return (
-        <div className="container">
-            Proxies
-        </div>
-    );
+  return <div className="container">Proxies</div>;
 }

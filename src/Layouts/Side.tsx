@@ -1,13 +1,16 @@
 import { NavLink } from "react-router-dom";
-import { PropsWithChildren } from "react";
-import "./index.css";
+import { type PropsWithChildren } from "react";
+import styles from "./index.module.css";
+import { FormattedMessage } from "react-intl";
 
 export function Side(props: PropsWithChildren): JSX.Element {
   const { children } = props;
-  type Item = {
+
+  interface Item {
     label: string;
     to: string;
-  };
+  }
+
   const routes: Item[] = [
     { to: "/", label: "General" },
     { to: "/proxies", label: "Proxies" },
@@ -18,11 +21,17 @@ export function Side(props: PropsWithChildren): JSX.Element {
     { to: "/feedback", label: "Feedback" },
   ];
   return (
-    <div className="container">
-      <ul className="side">
+    <div className={styles.container}>
+      <ul className={styles.side}>
         {routes.map((route) => (
-          <li key={route.to} className="side-item">
-            <NavLink to={route.to}>{route.label}</NavLink>
+          <li key={route.to} className={styles.sideItem}>
+            <NavLink to={route.to}>
+              <FormattedMessage
+                id={route.label}
+                defaultMessage="The link is {label}"
+                values={{ label: route.label }}
+              />
+            </NavLink>
           </li>
         ))}
       </ul>

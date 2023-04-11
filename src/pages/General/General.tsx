@@ -1,7 +1,3 @@
 export function General(): JSX.Element {
-    return (
-        <div className="container">
-            General
-        </div>
-    );
+  return <div className="container">General</div>;
 }

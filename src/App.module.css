@@ -1,0 +1,6 @@
+
+.container {
+    display: grid;
+    min-block-size: 100vh;
+    grid-auto-rows: auto 1fr;
+}
