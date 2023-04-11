@@ -12,6 +12,7 @@
     --sidebar-background: #f6f6f6;
     --background-color: #ffffff;
     --box-shadow-color: #ccc;
+    --border-color: #c6c6c6;
 }
 
 body.dark {
@@ -19,6 +20,7 @@ body.dark {
     --background-color: #000;
     --sidebar-background: #333;
     --sidebar-color: #ccc;
+    --border-color: #c6c6c6;
     --box-shadow-color: #333;
 }
 
@@ -28,6 +30,7 @@ body.light {
     --sidebar-background: #f6f6f6;
     --background-color: #ffffff;
     --box-shadow-color: #ccc;
+    --border-color: #d6d6d6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,5 +40,6 @@ body.light {
         --sidebar-background: #333;
         --sidebar-color: #ccc;
         --box-shadow-color: #333;
+        --border-color: #d6d6d6;
     }
 }

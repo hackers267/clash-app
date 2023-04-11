@@ -1,5 +1,10 @@
 import styles from "./App.module.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { Side } from "./Layouts";
 import { General } from "./pages/General";
 import { Settings } from "./pages/Settings";
@@ -13,6 +18,7 @@ import { IntlProvider } from "react-intl";
 import { ToolBar } from "./components";
 import { useAtom } from "jotai";
 import { langAtom } from "./storage";
+import { Direct, Global, Rule, Script } from "./pages/Proxies/components";
 
 function App(): JSX.Element {
   const [state] = useAtom(langAtom);
@@ -62,7 +68,13 @@ function App(): JSX.Element {
                   <Proxies />
                 </Side>
               }
-            />
+            >
+              <Route path="global" element={<Global />} />
+              <Route index element={<Navigate to="global" replace />} />
+              <Route path="rule" element={<Rule />} />
+              <Route path="script" element={<Script />} />
+              <Route path="direct" element={<Direct />} />
+            </Route>
             <Route
               path="/profiles"
               element={
@@ -70,7 +82,7 @@ function App(): JSX.Element {
                   <Profiles />
                 </Side>
               }
-            />
+            ></Route>
             <Route
               path="/connections"
               element={
