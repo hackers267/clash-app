@@ -27,7 +27,7 @@
 
 .sideItem a {
     text-decoration: none;
-    color: var(--gray-color, gray);
+    color: var(--sidebar-color, gray);
 }
 
 .sideItem .active {

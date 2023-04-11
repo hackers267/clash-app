@@ -3,14 +3,23 @@
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    color: #0f0f0f;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
-    --color: #000;
-    --gray-color: gray;
+    --color: #0f0f0f;
+    --sidebar-color: gray;
     --sidebar-background: #f6f6f6;
     --background-color: #ffffff;
     --box-shadow-color: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color: #fff;
+        --background-color: #000;
+        --sidebar-background: #333;
+        --sidebar-color: #ccc;
+        --box-shadow-color: #333;
+    }
 }
