@@ -11,10 +11,11 @@ import { Connections } from "./pages/Connections";
 import React from "react";
 import { IntlProvider } from "react-intl";
 import { ToolBar } from "./components";
-import { useLocals } from "./hooks";
+import { useAtom } from "jotai";
+import { langAtom } from "./storage";
 
 function App(): JSX.Element {
-  const { state } = useLocals();
+  const [state] = useAtom(langAtom);
   const { locals, message } = state;
   return (
     <div className={styles.container}>
