@@ -14,6 +14,22 @@
     --box-shadow-color: #ccc;
 }
 
+body.dark {
+    --color: #fff;
+    --background-color: #000;
+    --sidebar-background: #333;
+    --sidebar-color: #ccc;
+    --box-shadow-color: #333;
+}
+
+body.light {
+    --color: #0f0f0f;
+    --sidebar-color: gray;
+    --sidebar-background: #f6f6f6;
+    --background-color: #ffffff;
+    --box-shadow-color: #ccc;
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --color: #fff;

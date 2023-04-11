@@ -21,7 +21,7 @@
     block-size: 100%;
 }
 
-.sideItem:has(.active) {
+.sideItem:has(:global(.active)) {
     background-color: var(--background-color, white);
 }
 
@@ -30,6 +30,6 @@
     color: var(--sidebar-color, gray);
 }
 
-.sideItem .active {
+.sideItem :global(.active) {
     color: var(--color, black);
 }

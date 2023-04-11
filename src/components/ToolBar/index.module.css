@@ -1,9 +1,11 @@
 .container {
     display: flex;
     justify-content: end;
+    align-items: center;
     block-size: 48px;
     box-sizing: border-box;
     padding: 16px;
     box-shadow: 0 1px 5px 2px var(--box-shadow-color, #ccc);
     z-index: 1;
+    gap: 16px;
 }
