@@ -29,6 +29,14 @@
     border-radius: 4px;
     background-color: var(--card-bg-color, #363636);
     color: var(--color, #000);
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 0 8px 2px #9b9b9b;
+    transform: scale(1.02);
 }
 
 
