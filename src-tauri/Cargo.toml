@@ -1,21 +1,26 @@
 [package]
 name = "clash-app"
 version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
+description = "Clash Client"
+authors = ["silence"]
 license = ""
 repository = ""
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+path = "src/libs/mod.rs"
+name = "clash"
 
 [build-dependencies]
 tauri-build = { version = "1.2", features = [] }
 
 [dependencies]
+anyhow = "1.0.70"
 tauri = { version = "1.2", features = ["shell-open"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+serde_yaml = "0.9.21"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem
