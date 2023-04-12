@@ -1,4 +1,7 @@
 import styles from "./index.module.css";
+import { useAtom } from "jotai";
+import { choiceProxy } from "@/storage";
+import classNames from "classnames";
 
 export interface CardProps {
   name: string;
@@ -6,9 +9,17 @@ export interface CardProps {
 }
 
 export function Card({ name, type }: CardProps): JSX.Element {
-  const containerClass = `${styles.card} ${styles.cardActive}`;
+  const [active, setActive] = useAtom(choiceProxy);
+  const containerClass = classNames(styles.card, {
+    [styles.cardActive]: active === name,
+  });
   return (
-    <div className={containerClass}>
+    <div
+      className={containerClass}
+      onClick={() => {
+        setActive(name);
+      }}
+    >
       <div className={styles.cardName}>{name}</div>
       <div className={styles.cardCheck}>Check</div>
       <div className={styles.cardType}>
