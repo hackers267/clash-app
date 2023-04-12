@@ -8,7 +8,7 @@
 
 .header .item {
     display: flex;
-    gap: 16px;
+    gap: 12px;
 }
 
 .cardContainer {
@@ -71,4 +71,11 @@
 
 .card.cardActive::before {
     background-color: var(--primary-color, dodgerblue);
+}
+
+.icon {
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-grid;
+    place-content: center;
 }
