@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import { Pudding } from "../../../../components";
+import { Pudding } from "@/components";
 import { AiFillInfoCircle, MdSpeed } from "react-icons/all";
 
 export function Header(): JSX.Element {

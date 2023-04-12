@@ -7,6 +7,7 @@
       "DOM.Iterable",
       "ESNext"
     ],
+    "baseUrl": "./src",
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -27,7 +28,12 @@
         "overrideIdFn": "[sha512:contenthash:base64:6]",
         "ast": true
       }
-    ]
+    ],
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
   },
   "include": [
     "src"
