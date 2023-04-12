@@ -13,6 +13,9 @@ dependencies:
   jotai:
     specifier: ^2.0.4
     version: 2.0.4(react@18.2.0)
+  observable-hooks:
+    specifier: ^4.2.1
+    version: 4.2.1(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -3674,6 +3677,18 @@ packages:
       es-abstract: 1.21.2
     dev: true
 
+  /observable-hooks@4.2.1(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.0):
+    resolution: {integrity: sha512-urZ0D28+oH+SRLQoCDd68rvvJIqK3zgH/Is0nubXDc+CF6d8rbDBN7A2n9mPAax7BtCRlwtnCBnkj8UwXRDf1Q==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+      rxjs: '>=6.0.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      rxjs: 7.8.0
+    dev: false
+
   /once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
     dependencies:
@@ -4026,6 +4041,12 @@ packages:
     dependencies:
       queue-microtask: 1.2.3
     dev: true
+
+  /rxjs@7.8.0:
+    resolution: {integrity: sha512-F2+gxDshqmIub1KdvZkaEfGDwLNpPvk9Fs6LD/MyQxNgMds/WH9OdDDXOmxUZpME+iSK3rQCctkL0DYyytUqMg==}
+    dependencies:
+      tslib: 2.5.0
+    dev: false
 
   /safe-regex-test@1.0.0:
     resolution: {integrity: sha512-JBUUzyOgEwXQY1NuPtvcj/qcBDbDmEvWufhlnXZIm75DEHp+afM1r1ujJpJsV/gSM4t59tpDyPi1sd6ZaPFfsA==}
