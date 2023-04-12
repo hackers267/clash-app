@@ -1,0 +1,74 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.header .item {
+    display: flex;
+    gap: 16px;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px 16px;
+}
+
+.card {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, 24px);
+    grid-template-areas: "name check" "type check";
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--card-bg-color, #363636);
+    color: var(--color, #000);
+}
+
+
+.card::before {
+    content: "";
+    width: 4px;
+    border-radius: 2px;
+    position: absolute;
+    height: 100%;
+    transform: translateX(-8px);
+    background-color: var(--card-bg-color, #363636);
+}
+
+.cardName {
+    grid-area: name;
+}
+
+.cardCheck {
+    grid-area: check;
+    align-self: center;
+}
+
+.cardType {
+    grid-area: type;
+    color: var(--downplay-color, #f6f6f6);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cardLabel {
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    padding: 0 4px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    height: 18px;
+}
+
+.card.cardActive::before {
+    background-color: var(--primary-color, dodgerblue);
+}

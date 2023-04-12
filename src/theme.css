@@ -8,38 +8,47 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     --color: #0f0f0f;
+    --downplay-color: #a7a7a7;
     --sidebar-color: gray;
     --sidebar-background: #f6f6f6;
     --background-color: #ffffff;
     --box-shadow-color: #ccc;
     --border-color: #c6c6c6;
+    --card-bg-color: #f6f6f6;
+    --primary-color: green;
 }
 
 body.dark {
     --color: #fff;
+    --downplay-color: #999999;
     --background-color: #000;
     --sidebar-background: #333;
     --sidebar-color: #ccc;
     --border-color: #c6c6c6;
     --box-shadow-color: #333;
+    --card-bg-color: #262626;
 }
 
 body.light {
     --color: #0f0f0f;
+    --downplay-color: #a7a7a7;
     --sidebar-color: gray;
     --sidebar-background: #f6f6f6;
     --background-color: #ffffff;
     --box-shadow-color: #ccc;
     --border-color: #d6d6d6;
+    --card-bg-color: #f6f6f6;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --color: #fff;
+        --downplay-color: #99999;
         --background-color: #000;
         --sidebar-background: #333;
         --sidebar-color: #ccc;
         --box-shadow-color: #333;
         --border-color: #d6d6d6;
+        --card-bg-color: #262626;
     }
 }
