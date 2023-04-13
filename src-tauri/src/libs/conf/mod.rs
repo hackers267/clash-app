@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 
@@ -5,38 +7,74 @@ use serde::{Deserialize, Serialize};
 pub struct Proxy {
     pub name: String,
     pub r#type: String,
-    pub server: String,
-    pub port: i32,
-    pub cipher: String,
-    pub password: String,
-    pub plugin: String,
+    pub udp: bool,
+    pub active: bool,
 }
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
-pub struct Config {
-    pub proxies: Vec<Proxy>,
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct ProxyRes {
+    pub all: Option<Vec<String>>,
+    pub history: Option<Vec<String>>,
+    pub name: String,
+    pub now: Option<String>,
+    pub r#type: String,
+    pub udp: bool,
 }
 
-pub fn read_config(path: &str) -> Result<Config> {
-    // TODO: 路径作为参数或配置设置
-    let file = std::fs::File::open(path)?;
-    let config: Config = serde_yaml::from_reader(&file)?;
-    println!("{:?}", config);
-    Ok(config)
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct ProxiesRes {
+    pub proxies: HashMap<String, ProxyRes>,
 }
 
-pub fn get_proxies(path: &str) -> Result<Vec<Proxy>> {
-    read_config(path).map(|config| config.proxies)
+pub async fn get_proxies(path: &str) -> Result<Vec<Proxy>> {
+    let proxies = reqwest::Client::new()
+        .get("http://localhost:9090/proxies")
+        .send()
+        .await?
+        .json::<ProxiesRes>()
+        .await?;
+    let selectors: Vec<_> = proxies
+        .proxies
+        .values()
+        .filter(|proxy| is_selector_proxy(proxy))
+        .map(|proxy| proxy.now.clone())
+        .collect();
+    let active = proxies_filter_by(&proxies, true);
+    let active: Vec<_> = active
+        .iter()
+        .filter(|proxy| selectors.contains(&Some(proxy.name.to_string())))
+        .map(|proxy| proxy.name.clone())
+        .collect();
+    let result: Vec<_> = proxies_filter_by(&proxies, false)
+        .iter()
+        .map(|proxy| Proxy {
+            name: proxy.name.to_string(),
+            r#type: proxy.r#type.to_string(),
+            udp: proxy.udp,
+            active: active.contains(&proxy.name),
+        })
+        .collect();
+    Ok(result)
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+fn proxies_filter_by(proxies: &ProxiesRes, is_selector: bool) -> Vec<&ProxyRes> {
+    proxies
+        .proxies
+        .values()
+        .filter(|proxy| {
+            if is_selector {
+                is_selector_proxy(proxy)
+            } else {
+                not_selector_proxy(proxy)
+            }
+        })
+        .collect()
+}
 
-    #[test]
-    fn it_works() {
-        let result = read_config("/home/silence/.config/clash/config.yaml");
-        println!("{:?}", result);
-        assert!(result.is_ok());
-    }
+fn not_selector_proxy(proxy: &ProxyRes) -> bool {
+    !is_selector_proxy(proxy)
+}
+
+fn is_selector_proxy(proxy: &ProxyRes) -> bool {
+    proxy.r#type == "Selector"
 }

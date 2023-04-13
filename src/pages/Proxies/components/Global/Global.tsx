@@ -21,7 +21,11 @@ export function Global(): JSX.Element {
   );
 
   async function getProxies(): Promise<void> {
-    const all: any[] = await invoke("proxies");
+    const all: any[] = await invoke("proxies").catch((err) => {
+      console.log(err);
+      return [];
+    });
+    console.log(all);
     setList(all);
   }
 }
