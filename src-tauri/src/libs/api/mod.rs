@@ -17,4 +17,8 @@ impl Api {
     pub fn proxies_with(&self, name: &str) -> String {
         format!("{}/proxies/{}", self.base, name)
     }
+
+    pub fn rules(&self) -> String {
+        format!("{}/rules", self.base)
+    }
 }

@@ -2,6 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use clash::handoff::fetch;
+use clash::Rule;
 use clash::{get_proxies, Proxy};
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
@@ -25,9 +26,22 @@ async fn handoff_proxy(name: &str) -> Result<bool, ()> {
     Ok(result)
 }
 
+#[tauri::command]
+async fn fetch_rules() -> Result<Vec<Rule>, String> {
+    Rule::fetch().await.map_err(|err| {
+        println!("{:?}", err);
+        err.to_string()
+    })
+}
+
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, proxies, handoff_proxy])
+        .invoke_handler(tauri::generate_handler![
+            greet,
+            proxies,
+            handoff_proxy,
+            fetch_rules
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
