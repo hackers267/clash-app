@@ -57,7 +57,7 @@ pub struct ProxiesRes {
 pub async fn get_proxies() -> Result<Vec<Proxy>> {
     let proxies = fetch_proxies().await?;
     let selectors = pick_selectors_from_proxies(&proxies);
-    let active = proxies_filter_by(&proxies, true);
+    let active = proxies_filter_by(&proxies, false);
     let active_names = pick_active_proxy(&selectors, &active);
     let result: Vec<_> = proxies_filter_by(&proxies, false)
         .iter()

@@ -11,8 +11,7 @@ fn greet(name: &str) -> String {
 
 #[tauri::command]
 async fn proxies() -> Result<Vec<Proxy>, String> {
-    let path = "/home/silence/.config/clash/config.yaml";
-    get_proxies(path).await.map_err(|err| {
+    get_proxies().await.map_err(|err| {
         println!("{:?}", err);
         err.to_string()
     })
