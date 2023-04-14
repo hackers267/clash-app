@@ -27,7 +27,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "silence_zhpf",
+      "identifier": "silence.zhpf",
       "targets": "all"
     },
     "security": {
