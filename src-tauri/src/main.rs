@@ -4,6 +4,7 @@
 use clash::handoff::fetch;
 use clash::Rule;
 use clash::{get_proxies, Proxy};
+use log::error;
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
@@ -14,7 +15,7 @@ fn greet(name: &str) -> String {
 #[tauri::command]
 async fn proxies() -> Result<Vec<Proxy>, String> {
     get_proxies().await.map_err(|err| {
-        println!("{:?}", err);
+        error!("{:?}", err);
         err.to_string()
     })
 }
@@ -22,19 +23,20 @@ async fn proxies() -> Result<Vec<Proxy>, String> {
 #[tauri::command]
 async fn handoff_proxy(name: &str) -> Result<bool, ()> {
     let result = fetch(name).await.is_ok();
-    println!("{}", result);
+    error!("{:?}", result);
     Ok(result)
 }
 
 #[tauri::command]
 async fn fetch_rules() -> Result<Vec<Rule>, String> {
     Rule::fetch().await.map_err(|err| {
-        println!("{:?}", err);
+        error!("{:?}", err);
         err.to_string()
     })
 }
 
 fn main() {
+    tracing_subscriber::fmt::init();
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             greet,
