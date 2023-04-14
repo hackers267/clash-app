@@ -6,16 +6,14 @@ import { useObservableState } from "observable-hooks";
 import { catchError, from, map, of, switchMap } from "rxjs";
 import { invoke } from "@tauri-apps/api";
 
-export type Proxy = any;
-
 export function Global(): JSX.Element {
   const [list, setList] = useObservableState<Proxy[], string>((input$) => {
     return input$.pipe(
       switchMap(() => {
-        return from(invoke<Proxy>("proxies")).pipe(
+        return from(invoke<Proxy[]>("proxies")).pipe(
           catchError((err) => {
             console.log(err);
-            return of([]);
+            return of<Proxy[]>([]);
           }),
           map((array: Proxy[]) => {
             array.sort((a, b) => (a.name > b.name ? 1 : -1));
@@ -28,7 +26,6 @@ export function Global(): JSX.Element {
   useEffect(() => {
     setList("");
   }, []);
-  console.log("Loaded List");
   return (
     <Suspense fallback="Loading...">
       <div className="global">

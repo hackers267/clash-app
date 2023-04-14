@@ -1,0 +1,22 @@
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: space-between;
+    grid-template-rows: 48px;
+    grid-auto-rows: 36px;
+}
+
+.list span {
+    border-block-start: 1px solid var(--border-color, #f6f6f6);
+    border-inline-start: 1px solid var(--border-color, #f6f6f6);
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.list span:nth-of-type(3n) {
+    border-inline-end: 1px solid var(--border-color, #f6f6f6);
+}
+
+.list span:nth-of-type(-2) {
+    border-block-end: 1px solid var(--border-color, #f6f6f6);
+}

@@ -4,6 +4,8 @@ import { lang } from "@/locales";
 import { catchError, from, map, of } from "rxjs";
 import { invoke } from "@tauri-apps/api";
 
+export * from "./rule";
+
 export const langAtom = atom({ message: lang.cn, locals: "zh-CN" });
 export const choiceProxy = atom("");
 
