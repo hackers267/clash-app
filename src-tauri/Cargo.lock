@@ -241,12 +241,14 @@ name = "clash-app"
 version = "0.0.0"
 dependencies = [
  "anyhow",
+ "log",
  "reqwest",
  "serde",
  "serde_json",
  "serde_yaml",
  "tauri",
  "tauri-build",
+ "tracing-subscriber",
 ]
 
 [[package]]
