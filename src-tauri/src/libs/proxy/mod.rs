@@ -1,4 +1,4 @@
-use crate::dirs::{config_path, CLASH_CONFIG};
+use crate::dirs::{config_path, default_config, CLASH_CONFIG};
 use crate::mode::Mode;
 use crate::Config;
 use anyhow::Result;
@@ -75,7 +75,7 @@ pub async fn get_proxies() -> anyhow::Result<Vec<Proxy>> {
 }
 
 pub fn get_active_mode() -> Result<Mode> {
-    let path = config_path(Path::new(CLASH_CONFIG))?;
+    let path = default_config()?;
     let conf = Config::init(&path)?;
     Ok(conf.mode)
 }

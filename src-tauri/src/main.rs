@@ -44,7 +44,7 @@ async fn down_profile(url: &str) -> Result<(), String> {
 }
 
 #[tauri::command]
-fn active_proxy() -> Result<Mode, String> {
+fn active_mode() -> Result<Mode, String> {
     get_active_mode().map_err(|err| {
         error!("{:?}", err);
         err.to_string()
@@ -60,7 +60,7 @@ fn main() {
             handoff_proxy,
             fetch_rules,
             down_profile,
-            active_proxy
+            active_mode
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

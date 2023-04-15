@@ -17,7 +17,8 @@ impl Config {
         Self::read_config(path)
     }
     fn read_config(path: &Path) -> Result<Config> {
-        let config = std::fs::read_to_string(path).unwrap();
+        println!("{:?}", path);
+        let config = std::fs::read_to_string(path)?;
         let x: Config = serde_yaml::from_str(&config)?;
         Ok(x)
     }

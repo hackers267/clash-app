@@ -1,23 +1,28 @@
+use std::path::{Path, PathBuf};
+
 use anyhow::{bail, Result};
 use mock4rs::base::random_string_by_len;
 use mock4rs::char::CharType;
-use std::path::{Path, PathBuf};
 use tauri::api::path::home_dir;
+
 pub static CLASH_CONFIG: &str = "config.yaml";
 static CLASH_DIR: &str = "clash_app";
 
 pub fn app_home_dir() -> Result<PathBuf> {
-    home_dir()
-        .map(|dir| dir.join(".config"))
-        .map(|f| f.join(CLASH_DIR))
-        .ok_or(bail!("Could not find home directory"))
+    #[cfg(not(target_os = "windows"))]
+    let dir = home_dir()
+        .ok_or(anyhow::anyhow!("Could not find home directory"))?
+        .join(".config")
+        .join(CLASH_DIR);
+    Ok(dir)
 }
+
 pub fn config_exist(path: &Path) -> bool {
     let config_path = app_home_dir().map(|file| file.join(path));
     config_path.map(|path| path.exists()).unwrap_or(false)
 }
 
-fn default_config() -> Result<PathBuf> {
+pub fn default_config() -> Result<PathBuf> {
     app_home_dir().map(|path| path.join(CLASH_CONFIG))
 }
 
