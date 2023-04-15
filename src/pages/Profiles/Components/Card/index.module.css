@@ -42,5 +42,12 @@
 }
 
 .status {
-    grid-area: status
+    grid-area: status;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.status:hover {
+    transform: scale(1.1);
+    color: var(--active-color, green);
 }
