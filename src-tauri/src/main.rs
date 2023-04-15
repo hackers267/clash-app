@@ -36,8 +36,7 @@ async fn fetch_rules() -> Result<Vec<Rule>, String> {
 
 #[tauri::command]
 async fn down_profile(url: &str) -> Result<(), String> {
-    let path = "./config.yaml";
-    download_profile(url, path).await.map_err(|err| {
+    download_profile(url).await.map_err(|err| {
         error!("{:?}", err);
         err.to_string()
     })

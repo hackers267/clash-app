@@ -3,7 +3,7 @@ use mock4rs::base::random_string_by_len;
 use mock4rs::char::CharType;
 use std::path::{Path, PathBuf};
 use tauri::api::path::home_dir;
-static CLASH_CONFIG: &str = "config.yaml";
+pub static CLASH_CONFIG: &str = "config.yaml";
 static CLASH_DIR: &str = "clash_app";
 
 pub fn app_home_dir() -> Result<PathBuf> {
