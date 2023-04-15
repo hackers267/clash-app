@@ -10,4 +10,7 @@ export const en = {
   "proxy.header.rule": "Rule",
   "proxy.header.direct": "Direct",
   "proxy.header.script": "Script",
+  "proxy.rule.header.rule": "Rule",
+  "proxy.rule.header.proxy": "Proxy",
+  "proxy.rule.header.type": "Type",
 };

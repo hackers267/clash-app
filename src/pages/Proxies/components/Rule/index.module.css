@@ -20,6 +20,6 @@
     border-inline-end: 1px solid var(--border-color, #f6f6f6);
 }
 
-.list span:nth-of-type(n-2) {
+.list span:nth-last-of-type(-n + 3) {
     border-block-end: 1px solid var(--border-color, #f6f6f6);
 }

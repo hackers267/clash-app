@@ -2,6 +2,7 @@ import { useAtom } from "jotai";
 import { rulesAtom } from "@/storage";
 import { useEffect } from "react";
 import styles from "./index.module.css";
+import { FormattedMessage } from "react-intl";
 
 function RuleItem(props: Rule): JSX.Element {
   const item = props;
@@ -19,12 +20,21 @@ export function Rule(): JSX.Element {
   useEffect(() => {
     fetch("");
   }, []);
+  const headers = ["rule", "proxy", "type"];
   return (
     <div className="rule">
       <div className={styles.list}>
-        <span>规则</span>
-        <span>代理</span>
-        <span>类型</span>
+        {headers.map((header) => {
+          return (
+            <span key={header}>
+              <FormattedMessage
+                id={`proxy.rule.header.${header}`}
+                defaultMessage="The header is {header}"
+                values={{ header }}
+              />
+            </span>
+          );
+        })}
         {rules.map((rule: Rule) => {
           const key = rule.payload + rule.proxy + rule.type;
           return (

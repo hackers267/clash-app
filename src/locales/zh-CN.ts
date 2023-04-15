@@ -10,4 +10,7 @@ export const cn = {
   "proxy.header.rule": "规则",
   "proxy.header.direct": "直连",
   "proxy.header.script": "脚本",
+  "proxy.rule.header.rule": "规则",
+  "proxy.rule.header.proxy": "代理",
+  "proxy.rule.header.type": "类型",
 };
