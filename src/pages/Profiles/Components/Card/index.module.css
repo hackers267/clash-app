@@ -1,0 +1,46 @@
+.card {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-areas: "name status" "type status";
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+    position: relative;
+    padding: 8px;
+    background-color: var(--card-bg-color, gray);
+    border-radius: var(--card-border-radius, 4px);
+    font-size: 16px;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-8px);
+    width: 4px;
+    background-color: inherit;
+    border-radius: 4px;
+}
+
+.card.active::before {
+    background-color: var(--primary-color, green);
+}
+
+.name {
+    grid-area: name;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.name:hover {
+    transform: scale(1.1);
+}
+
+.type {
+    grid-area: type;
+}
+
+.status {
+    grid-area: status
+}

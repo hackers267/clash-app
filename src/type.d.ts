@@ -9,3 +9,9 @@ declare interface Proxy {
   name: string;
   type: string;
 }
+
+declare interface ProfileCard {
+  name: string;
+  type: string;
+  active: boolean;
+}

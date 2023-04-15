@@ -16,6 +16,7 @@
     --border-color: #c6c6c6;
     --card-bg-color: #f6f6f6;
     --primary-color: green;
+    --card-border-radius: 4px;
 }
 
 body.dark {
@@ -27,6 +28,7 @@ body.dark {
     --border-color: #c6c6c6;
     --box-shadow-color: #333;
     --card-bg-color: #262626;
+    --card-border-radius: 4px;
 }
 
 body.light {
@@ -38,6 +40,7 @@ body.light {
     --box-shadow-color: #ccc;
     --border-color: #d6d6d6;
     --card-bg-color: #f6f6f6;
+    --card-border-radius: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,5 +53,6 @@ body.light {
         --box-shadow-color: #333;
         --border-color: #d6d6d6;
         --card-bg-color: #262626;
+        --card-border-radius: 4px;
     }
 }
