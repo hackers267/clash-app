@@ -15,7 +15,7 @@ export function Header(): JSX.Element {
         <li key={name}>
           <NavLink to={url}>
             <FormattedMessage
-              id={`profiles.header.${name}`}
+              id={`proxy.header.${name}`}
               defaultMessage="The link is {name}"
               values={{ name }}
             />
