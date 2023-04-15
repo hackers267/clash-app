@@ -2,8 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use clash::handoff::fetch;
-use clash::Rule;
-use clash::{get_proxies, Proxy};
+use clash::{get_proxies, Proxy, Rule};
 use log::error;
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
