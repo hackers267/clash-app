@@ -5,6 +5,7 @@ pub use rules::*;
 
 mod api;
 mod conf;
+mod dirs;
 mod profile;
 mod proxy;
 mod request;
