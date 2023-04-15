@@ -1,13 +1,15 @@
 use std::path::Path;
 
 use anyhow::Result;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 
 pub mod handoff;
+pub mod mode;
 
 #[derive(Deserialize)]
 pub struct Config {
     pub port: Option<u16>,
+    pub mode: mode::Mode,
 }
 
 impl Config {

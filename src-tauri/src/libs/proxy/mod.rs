@@ -1,5 +1,10 @@
+use crate::dirs::{config_path, CLASH_CONFIG};
+use crate::mode::Mode;
+use crate::Config;
+use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use std::path::Path;
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 /// 上面的代码定义了一个名为“Proxy”的 Rust 结构，它有四个字段：name（一个字符串）、type（一个字符串）、udp（一个布尔值）和 active（一个布尔值）。
@@ -67,6 +72,12 @@ pub async fn get_proxies() -> anyhow::Result<Vec<Proxy>> {
         })
         .collect();
     Ok(result)
+}
+
+pub fn get_active_mode() -> Result<Mode> {
+    let path = config_path(Path::new(CLASH_CONFIG))?;
+    let conf = Config::init(&path)?;
+    Ok(conf.mode)
 }
 
 /// 该函数根据选择器列表过滤活动代理列表，并返回它们的名称列表。
