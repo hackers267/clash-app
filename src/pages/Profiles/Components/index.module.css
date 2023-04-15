@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 16px 0;
+}
+
+.input {
+    flex: auto;
+}
+
+.buttonGroup {
+    flex: none;
+    display: flex;
+    gap: 16px;
+    min-block-size: 36px;
+}
+
+.btn {
+    flex: auto;
+}

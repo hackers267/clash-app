@@ -6,6 +6,7 @@
     color: var(--color, #fff);
     background-color: var(--background-color, #000);
     box-sizing: border-box;
+    font-size: inherit;
 }
 
 .gray {
