@@ -37,14 +37,6 @@ export function Rule(): JSX.Element {
           );
         })}
       </div>
-      <h1>Rule</h1>
-      <button
-        onClick={() => {
-          fetch("");
-        }}
-      >
-        Fetch
-      </button>
     </div>
   );
 }
