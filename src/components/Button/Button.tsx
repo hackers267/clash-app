@@ -1,4 +1,4 @@
-import { type PropsWithChildren } from "react";
+import { type MouseEventHandler, type PropsWithChildren } from "react";
 import styles from "./index.module.css";
 import classNames from "classnames";
 
@@ -14,6 +14,7 @@ export interface ButtonProps {
   disabled?: boolean;
   type?: ButtonType;
   className?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export function Button({
@@ -21,6 +22,7 @@ export function Button({
   disabled = false,
   type = "default",
   className,
+  onClick,
 }: PropsWithChildren<ButtonProps>): JSX.Element {
   const typeClass = getTypeClass(type);
   const btnClass = classNames(
@@ -31,7 +33,11 @@ export function Button({
     },
     className
   );
-  return <button className={btnClass}>{children}</button>;
+  return (
+    <button onClick={onClick} className={btnClass}>
+      {children}
+    </button>
+  );
 
   function getTypeClass(type: ButtonType): Record<string, boolean> {
     return {

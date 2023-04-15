@@ -2,7 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use clash::handoff::fetch;
-use clash::{get_proxies, Proxy, Rule};
+use clash::{download_profile, get_proxies, Proxy, Rule};
 use log::error;
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
@@ -34,6 +34,15 @@ async fn fetch_rules() -> Result<Vec<Rule>, String> {
     })
 }
 
+#[tauri::command]
+async fn down_profile(url: &str) -> Result<(), String> {
+    let path = "./config.yaml";
+    download_profile(url, path).await.map_err(|err| {
+        error!("{:?}", err);
+        err.to_string()
+    })
+}
+
 fn main() {
     tracing_subscriber::fmt::init();
     tauri::Builder::default()
@@ -41,7 +50,8 @@ fn main() {
             greet,
             proxies,
             handoff_proxy,
-            fetch_rules
+            fetch_rules,
+            down_profile
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
