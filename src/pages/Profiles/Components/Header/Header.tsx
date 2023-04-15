@@ -2,6 +2,7 @@ import { Button, Input } from "@/components";
 import styles from "./index.module.css";
 import { type ChangeEvent, useState } from "react";
 import { invoke } from "@tauri-apps/api";
+import { FormattedMessage } from "react-intl";
 
 // TODO: 添加国际化
 
@@ -23,13 +24,27 @@ export function Header(): JSX.Element {
             download();
           }}
         >
-          Download
+          <FormattedMessage
+            id="profile.action.download"
+            defaultMessage="profile action is {download}"
+            values={{
+              download: "download",
+            }}
+          />
         </Button>
         <Button className={styles.btn} disabled>
-          Update All
+          <FormattedMessage
+            id="profile.action.update"
+            defaultMessage="Update"
+            values={{ update: "update" }}
+          />
         </Button>
         <Button className={styles.btn} disabled>
-          Import
+          <FormattedMessage
+            id="profile.action.import"
+            defaultMessage="Import"
+            values={{ import: "import" }}
+          />
         </Button>
       </div>
     </div>

@@ -13,4 +13,7 @@ export const cn = {
   "proxy.rule.header.rule": "规则",
   "proxy.rule.header.proxy": "代理",
   "proxy.rule.header.type": "类型",
+  "profile.action.download": "下载",
+  "profile.action.update": "更新",
+  "profile.action.import": "导入",
 };

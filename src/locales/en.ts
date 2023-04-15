@@ -13,4 +13,7 @@ export const en = {
   "proxy.rule.header.rule": "Rule",
   "proxy.rule.header.proxy": "Proxy",
   "proxy.rule.header.type": "Type",
+  "profile.action.download": "Download",
+  "profile.action.update": "Update",
+  "profile.action.import": "Import",
 };
