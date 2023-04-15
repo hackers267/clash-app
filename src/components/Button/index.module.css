@@ -1,0 +1,20 @@
+.button {
+    appearance: none;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    color: var(--color, #fff);
+    background-color: var(--background-color, #000);
+    box-sizing: border-box;
+}
+
+.gray {
+    background-color: gray;
+    color: var(--background-color, #f6f6f6);
+}
+
+.disabled {
+    background-color: gray;
+    color: #f6f6f6;
+    cursor: not-allowed;
+}
