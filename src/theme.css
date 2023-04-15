@@ -8,6 +8,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
     --color: #0f0f0f;
+    --reverse-color: #f6f6f6;
     --downplay-color: #a7a7a7;
     --sidebar-color: gray;
     --sidebar-background: #f6f6f6;
@@ -18,10 +19,12 @@
     --primary-color: green;
     --active-color: green;
     --card-border-radius: 4px;
+    --border-radius: 4px;
 }
 
 body.dark {
     --color: #fff;
+    --reverse-color: #0f0f0f;
     --downplay-color: #999999;
     --background-color: #000;
     --sidebar-background: #333;
@@ -30,10 +33,12 @@ body.dark {
     --box-shadow-color: #333;
     --card-bg-color: #262626;
     --card-border-radius: 4px;
+    --border-radius: 4px;
 }
 
 body.light {
     --color: #0f0f0f;
+    --reverse-color: #f6f6f6;
     --downplay-color: #a7a7a7;
     --sidebar-color: gray;
     --sidebar-background: #f6f6f6;
@@ -42,11 +47,13 @@ body.light {
     --border-color: #d6d6d6;
     --card-bg-color: #f6f6f6;
     --card-border-radius: 4px;
+    --border-radius: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --color: #fff;
+        --reverse-color: #0f0f0f;
         --downplay-color: #99999;
         --background-color: #000;
         --sidebar-background: #333;
@@ -55,5 +62,6 @@ body.light {
         --border-color: #d6d6d6;
         --card-bg-color: #262626;
         --card-border-radius: 4px;
+        --border-radius: 4px;
     }
 }
