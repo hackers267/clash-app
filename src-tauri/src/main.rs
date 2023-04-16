@@ -1,6 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod commands;
+
 use clash::handoff::fetch;
 use clash::mode::Mode;
 use clash::{download_profile, get_active_mode, get_proxies, Proxy, Rule};

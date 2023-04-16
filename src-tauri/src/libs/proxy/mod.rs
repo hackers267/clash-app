@@ -1,6 +1,6 @@
 use crate::dirs::{config_path, default_config, CLASH_CONFIG};
 use crate::mode::Mode;
-use crate::Config;
+use crate::ClashConfig;
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -76,7 +76,7 @@ pub async fn get_proxies() -> anyhow::Result<Vec<Proxy>> {
 
 pub fn get_active_mode() -> Result<Mode> {
     let path = default_config()?;
-    let conf = Config::init(&path)?;
+    let conf = ClashConfig::init(&path)?;
     Ok(conf.mode)
 }
 
